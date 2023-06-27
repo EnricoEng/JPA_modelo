@@ -1,8 +1,20 @@
 package br.com.alura.loja.modelo;
 
+import java.lang.annotation.Inherited;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.processing.Generated;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
+
+
 
 @Entity
 @Table(name = "itens_pedido")
@@ -29,7 +41,7 @@ public class ItemPedido {
         this.quantidade = quantidade;
         this.pedido = pedido;
         this.produto = produto;
-        this.precoUnitario = produto.getPreco;
+        this.precoUnitario = produto.getPreco();
     }
 
     public int getQuantidade() {

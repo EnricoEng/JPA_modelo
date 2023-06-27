@@ -3,12 +3,11 @@ package br.com.alura.loja.modelo;
 import java.lang.annotation.Inherited;
 
 import javax.annotation.processing.Generated;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "clientes")
-public class Cliente {
+public class Cliente{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +17,11 @@ public class Cliente {
     
     
     public Cliente(){
+    }
+
+    public Cliente(String nome, String cpf){
+        this.nome = nome;
+        this.cpf = cpf;
     }
 
     public String getNome(){
