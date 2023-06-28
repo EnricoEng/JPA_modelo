@@ -16,13 +16,15 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "valor_total")
     private BigDecimal valorTotal;
     private LocalDate data = LocalDate.now();
 
     @ManyToOne
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "pedido") //mappedby pedido pois já havia relacionamento feito na entidade ItemPedido
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL) //mappedby pedido pois já havia relacionamento feito na entidade ItemPedido e cascade para falar ao JPA "tudo que eu fizer nno pedido, faça também no ItemPedido"
     private List<ItemPedido> itens = new ArrayList<>();
 
     public Pedido(){

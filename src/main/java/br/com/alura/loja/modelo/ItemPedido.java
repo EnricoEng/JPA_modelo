@@ -7,13 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.processing.Generated;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.ManyToOne;
-
+import javax.persistence.*;
 
 
 @Entity
@@ -25,6 +19,7 @@ public class ItemPedido {
     private Long id;
 
     //preço na data da venda do produto
+    @Column(name = "preco_unitario")
     private BigDecimal precoUnitario;
     private int quantidade;
 
